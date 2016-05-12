@@ -1,0 +1,22 @@
+{
+  "name": "squid-mongo-connect",
+  "version": "1.0.1",
+  "description": "Unifica criação da conexão com o mongo nas api's da Squid.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/squidit/mongo-connect.git"
+  },
+  "author": "Squid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/squidit/mongo-connect/issues"
+  },
+  "homepage": "https://gitlab.com/squidit/mongo-connect#README",
+  "publishConfig": {
+      "registry": "http://npm.squidit.com.br/"
+  }
+}
