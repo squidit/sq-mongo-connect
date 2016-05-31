@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const chalk = require('chalk');
+const constroiUrlDeConexao = require('./constroi-url-de-conexao');
 
 module.exports = function conectar() {
   const mongodbUrl = constroiUrlDeConexao();
