@@ -3,6 +3,7 @@ const chalk = require('chalk');
 
 const estaEmAmbienteDeTeste = (process.env.NODE_ENV === 'test');
 const mongodbName = estaEmAmbienteDeTeste ? `${process.env.MONGODB_NAME}_test` : process.env.MONGODB_NAME;
+const mongodbUrl = `${process.env.MONGODB_URI}${mongodbName}`;
 const mongodbConnectionTimeout = process.env.MONGODB_CONNECTION_TIMEOUT || 30000;
 const mongodbReplicaSet = process.env.MONGODB_REPLICA_SET;
 
