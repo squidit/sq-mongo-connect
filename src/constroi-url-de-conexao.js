@@ -1,3 +1,5 @@
+const chalk = require('chalk');
+
 module.exports = function constroiUrlDeConexao() {
   const estaEmAmbienteDeTeste = (process.env.NODE_ENV === 'test');
   const mongodbName = estaEmAmbienteDeTeste ? `${process.env.MONGODB_NAME}_test` : process.env.MONGODB_NAME;
