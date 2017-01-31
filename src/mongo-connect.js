@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const chalk = require('chalk');
 const constroiUrlDeConexao = require('./constroi-url-de-conexao');
+const itIsNotTestEnvironment = (process.env.NODE_ENV === 'test');
 
-module.exports = function conectar() {
+module.exports = function () {
   const mongodbUrl = constroiUrlDeConexao();
   const mongodbConnectionTimeout = process.env.MONGODB_CONNECTION_TIMEOUT || 30000;
   const mongodbReplicaSet = process.env.MONGODB_REPLICA_SET;
@@ -33,10 +34,14 @@ module.exports = function conectar() {
     options.replset.rs_name = mongodbReplicaSet;
   }
 
-  console.info(chalk.green(`Conectando no servidor ${mongodbUrl}`));
+  if (itIsNotTestEnvironment) {
+    console.info(chalk.green(`Conectando no servidor ${mongodbUrl}`));
+  }
   return mongoose.connect(mongodbUrl, options)
     .then(() => {
-      console.log(chalk.green(`Conectado ao servidor ${mongodbUrl} com sucesso!`));
+      if (itIsNotTestEnvironment) {
+        console.log(chalk.green(`Conectado ao servidor ${mongodbUrl} com sucesso!`));
+      }
       return Promise.resolve();
     })
     .then(null, err => {
