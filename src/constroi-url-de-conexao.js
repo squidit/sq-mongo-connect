@@ -10,7 +10,6 @@ module.exports = function constroiUrlDeConexao() {
 
   if (estaEmAmbienteDeTeste) {
     const mongodbName = `${nomeOriginal.replace(/_test$/, '')}_test`;
-    console.info(chalk.blue(`Alterado nome de banco para ${chalk.underline(mongodbName)}`));
     return obtemUri(mongodbName);
   }
 
