@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const chalk = require('chalk');
 const constroiUrlDeConexao = require('./constroi-url-de-conexao');
-const itIsNotTestEnvironment = (process.env.NODE_ENV === 'test');
+const itIsNotTestEnvironment = (process.env.NODE_ENV !== 'test');
 
 module.exports = function () {
   const mongodbUrl = constroiUrlDeConexao();
