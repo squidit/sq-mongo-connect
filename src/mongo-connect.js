@@ -15,6 +15,7 @@ module.exports = function () {
   mongoose.Promise = global.Promise;
 
   const options = {
+    useMongoClient: true,
     server: {
       auto_reconnect: true,
       socketOptions: {
