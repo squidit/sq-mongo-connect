@@ -15,16 +15,7 @@ module.exports = function () {
   mongoose.Promise = global.Promise;
 
   const options = {
-    useMongoClient: true,
-      auto_reconnect: true,
-      socketOptions: {
-        keepAlive: 1,
-        connectTimeoutMS: mongodbConnectionTimeout
-      },
-      socketOptions: {
-        keepAlive: 1,
-        connectTimeoutMS: mongodbConnectionTimeout
-      }
+    useMongoClient: true
   };
 
   if (mongodbReplicaSet) {
