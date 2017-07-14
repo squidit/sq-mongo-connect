@@ -20,10 +20,6 @@ module.exports = function () {
       socketOptions: {
         keepAlive: 1,
         connectTimeoutMS: mongodbConnectionTimeout
-      },
-      socketOptions: {
-        keepAlive: 1,
-        connectTimeoutMS: mongodbConnectionTimeout
       }
   };
 
