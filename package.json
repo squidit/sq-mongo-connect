@@ -1,6 +1,6 @@
 {
   "name": "squid-mongo-connect",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "description": "Unifica criação da conexão com o mongo nas api's da Squid.",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,6 @@
   },
   "homepage": "https://gitlab.com/squidit/mongo-connect#README",
   "publishConfig": {
-      "registry": "http://npm.squidit.com.br/"
+    "registry": "http://npm.squidit.com.br/"
   }
 }
