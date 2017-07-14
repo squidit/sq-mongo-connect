@@ -16,19 +16,15 @@ module.exports = function () {
 
   const options = {
     useMongoClient: true,
-    server: {
       auto_reconnect: true,
       socketOptions: {
         keepAlive: 1,
-        connectTimeoutMS: mongodbConnectionTimeout,
+        connectTimeoutMS: mongodbConnectionTimeout
       },
-    },
-    replset: {
       socketOptions: {
         keepAlive: 1,
-        connectTimeoutMS: mongodbConnectionTimeout,
-      },
-    },
+        connectTimeoutMS: mongodbConnectionTimeout
+      }
   };
 
   if (mongodbReplicaSet) {
