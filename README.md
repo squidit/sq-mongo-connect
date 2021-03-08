@@ -12,7 +12,6 @@ Use o .env ou exporte para as variáveis de ambiente:
 
 - MONGODB_URI
 - MONGODB_NAME
-- MONGODB_REPLICA_SET *opcional*
 - MONGODB_CONNECTION_TIMEOUT *default 30000*
 
 #### Exemplo .env:

@@ -1,31 +1,29 @@
-const mongoose = require('mongoose');
-const chalk = require('chalk');
+const mongoose = require('mongoose')
+const chalk = require('chalk')
 const constroiUrlDeConexao = require('./constroi-url-de-conexao');
-const itIsNotTestEnvironment = (process.env.NODE_ENV !== 'test');
+const {
+  MONGODB_CONNECTION_TIMEOUT,
+  NODE_ENV
+} = process.env
 
+const itIsNotTestEnvironment = (NODE_ENV !== 'test')
 module.exports = function () {
-  const mongodbUrl = constroiUrlDeConexao();
-  const mongodbConnectionTimeout = process.env.MONGODB_CONNECTION_TIMEOUT || 30000;
-  const mongodbReplicaSet = process.env.MONGODB_REPLICA_SET;
+  const mongodbUrl = constroiUrlDeConexao()
+  const mongodbConnectionTimeout = MONGODB_CONNECTION_TIMEOUT || 30000
 
   if (!mongodbUrl) {
-    throw new Error(chalk.red('Brô, como que eu vou me conectar sem a variável de ambiente MONGODB_URI. Cria o .env ou exporta no seu ambiente.'));
+    throw new Error(chalk.red('Brô, como que eu vou me conectar sem a variável de ambiente MONGODB_URI. Cria o .env ou exporta no seu ambiente.'))
   }
 
   mongoose.Promise = global.Promise;
 
   const options = {
-    useMongoClient: true,
-      auto_reconnect: true,
-      socketOptions: {
-        keepAlive: 1,
-        connectTimeoutMS: mongodbConnectionTimeout
-      }
+    useNewUrlParser: true,
+    reconnectTries: 30,
+    reconnectInterval: 1000,
+    connectTimeoutMS: mongodbConnectionTimeout,
+    useUnifiedTopology: true
   };
-
-  if (mongodbReplicaSet) {
-    options.replset.rs_name = mongodbReplicaSet;
-  }
 
   if (itIsNotTestEnvironment) {
     console.info(chalk.green(`Conectando no servidor ${mongodbUrl}`));
