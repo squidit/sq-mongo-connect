@@ -1,7 +1,5 @@
-const chalk = require('chalk');
-
 function obtemUri(mongodbName) {
-  return `${process.env.MONGODB_URI}${mongodbName}`;
+  return `${process.env.MONGODB_URI}${mongodbName}`
 }
 
 module.exports = function constroiUrlDeConexao() {

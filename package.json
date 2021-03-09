@@ -18,5 +18,8 @@
   "homepage": "https://gitlab.com/squidit/mongo-connect#README",
   "publishConfig": {
     "registry": "http://npm.squidit.com.br/"
+  },
+  "dependencies": {
+    "mongoose": "^5.11.19"
   }
 }
