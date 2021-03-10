@@ -19,9 +19,6 @@ module.exports = function () {
 
   const options = {
     useNewUrlParser: true,
-    reconnectTries: 30,
-    reconnectInterval: 1000,
-    connectTimeoutMS: mongodbConnectionTimeout,
     useUnifiedTopology: true
   };
 
