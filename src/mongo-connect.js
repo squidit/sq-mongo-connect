@@ -9,13 +9,12 @@ const {
 const itIsNotTestEnvironment = (NODE_ENV !== 'test')
 module.exports = function () {
   const mongodbUrl = constroiUrlDeConexao()
-  const mongodbConnectionTimeout = MONGODB_CONNECTION_TIMEOUT || 30000
 
   if (!mongodbUrl) {
     throw new Error(chalk.red('Brô, como que eu vou me conectar sem a variável de ambiente MONGODB_URI. Cria o .env ou exporta no seu ambiente.'))
   }
 
-  mongoose.Promise = global.Promise;
+  // mongoose.Promise = global.Promise;
 
   const options = {
     useNewUrlParser: true,
@@ -25,6 +24,7 @@ module.exports = function () {
   if (itIsNotTestEnvironment) {
     console.info(chalk.green(`Conectando no servidor ${mongodbUrl}`));
   }
+
   return mongoose.connect(mongodbUrl, options)
     .then(() => {
       if (itIsNotTestEnvironment) {
