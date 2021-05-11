@@ -1,6 +1,6 @@
 {
   "name": "squid-mongo-connect",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "Unifica criação da conexão com o mongo nas api's da Squid.",
   "main": "index.js",
   "scripts": {

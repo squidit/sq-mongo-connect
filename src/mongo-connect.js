@@ -3,6 +3,7 @@ const chalk = require('chalk')
 const constroiUrlDeConexao = require('./constroi-url-de-conexao');
 const {
   MONGODB_CONNECTION_TIMEOUT,
+  MONGODB_QUERY_TIMEOUT_IN_MS,
   NODE_ENV
 } = process.env
 
@@ -20,6 +21,7 @@ module.exports = function () {
     useNewUrlParser: true,
     useUnifiedTopology: true
   };
+  if (MONGODB_QUERY_TIMEOUT_IN_MS) options.serverSelectionTimeoutMS = MONGODB_QUERY_TIMEOUT_IN_MS
 
   if (itIsNotTestEnvironment) {
     console.info(chalk.green(`Conectando no servidor ${mongodbUrl}`));
