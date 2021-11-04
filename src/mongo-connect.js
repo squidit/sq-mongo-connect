@@ -24,7 +24,7 @@ module.exports = function () {
   if (MONGODB_QUERY_TIMEOUT_IN_MS) options.serverSelectionTimeoutMS = MONGODB_QUERY_TIMEOUT_IN_MS
 
   if (itIsNotTestEnvironment) {
-    console.info(chalk.green(`Conectando no servidor ${mongodbUrl}`));
+    console.log(chalk.green(`Conectando no servidor ${mongodbUrl}`));
   }
 
   return mongoose.connect(mongodbUrl, options)
